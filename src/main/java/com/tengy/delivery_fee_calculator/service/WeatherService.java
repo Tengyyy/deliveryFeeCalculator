@@ -63,4 +63,12 @@ public class WeatherService {
 
         return closestWeather;
     }
+
+    public void clearWeather(){
+        weatherRepository.deleteAll();
+    }
+
+    public void addWeather(Weather weather){
+        weatherRepository.save(weather);
+    }
 }

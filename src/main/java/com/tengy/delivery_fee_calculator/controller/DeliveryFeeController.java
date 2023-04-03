@@ -35,8 +35,6 @@ public class DeliveryFeeController {
 
         City city = null;
 
-        //TODO: throw error when requestparams false or not specified
-
         switch (cityString.toLowerCase()){
             case "tallinn" -> city = City.TALLINN;
             case "tartu" -> city = City.TARTU;
@@ -51,7 +49,7 @@ public class DeliveryFeeController {
         switch (vehicleTypeString.toLowerCase()){
             case "car" -> vehicleType = VehicleType.CAR;
             case "scooter" -> vehicleType = VehicleType.SCOOTER;
-            case "bicycle" -> vehicleType = VehicleType.BICYCLE;
+            case "bike" -> vehicleType = VehicleType.BIKE;
             default -> {
                 throw new RequestException("Vehicle type incorrect");
             }
