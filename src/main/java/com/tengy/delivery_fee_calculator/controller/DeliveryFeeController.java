@@ -26,6 +26,21 @@ public class DeliveryFeeController {
     @Autowired
     WeatherService weatherService;
 
+
+    /**
+     * sample requests:
+     * <br>
+     * .../api/delivery_fee?city=tallinn&vehicle_type=car
+     * <br>
+     * .../api/delivery_fee?city=tartu&vehicle_type=bike&time=2023-01-01 10:00:00
+     *
+     * @param cityString        supported cities - Tallinn, Tartu, Parnu/Pärnu
+     * @param vehicleTypeString supported vehicle types - car, scooter, bike
+     * @param timeString        format 'yyyy-mm-dd hh:mm:ss'   , optional, tries to find the closest weather data to this timestamp
+     * @return ResponseEntity - if an exception occurred, then the error message will be returned,
+     *                          else a json representation of the delivery fee {total fee, regional base fee, air temp extra fee, wind speed extra fee, weather phenomenon extra fee, currency}
+     */
+
     @GetMapping(path="/delivery_fee",
                 produces = {
                     MediaType.APPLICATION_JSON_VALUE,
